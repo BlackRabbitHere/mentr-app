@@ -59,7 +59,7 @@ function PaymentPage() {
   if (!mentor) return <div className="text-white">No mentor selected.</div>;
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white p-6">
+    <div className="min-h-screen bg-[#2e3440] text-white p-6">
       <h1 className="text-xl sm:text-2xl font-semibold mb-2">
         You are just one step away from your live call with{" "}
         <span className="text-cyan-400">{mentor.name}</span>

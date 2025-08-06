@@ -32,7 +32,7 @@ function PaymentSuccess() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1a1c22] text-white flex flex-col items-center p-8">
+    <div className="min-h-screen bg-[#2e3440] text-white flex flex-col items-center p-8">
       <div className="bg-[#2c2f36] p-8 rounded-xl shadow-lg w-full max-w-md border border-purple-300">
         <div className="flex justify-center mb-4">
         <FaCheckCircle className="text-green-500 text-5xl" />
