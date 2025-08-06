@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import TrendingMentors from "./TrendingMentors";
+import mentorData from "../data/mentorData";
 
 function Home() {
    const [searchTerm, setSearchTerm] = useState("");
@@ -53,7 +55,7 @@ function Home() {
           Become a Mentor
         </span>
       </p>
-
+      <TrendingMentors mentors={mentorData.slice(0, 4)} />
     </div>
   );
 }
