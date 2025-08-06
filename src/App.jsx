@@ -4,12 +4,14 @@ import React from 'react';
 import Results from './components/Results';
 import PaymentForm from './components/checkout/PaymentForm';
 import PaymentSuccess from './components/checkout/PaymentSuccess';
+import Navbar from './components/Navbar';
 
 
 function App(){
     return (
         <React.Fragment>
             <Router>
+                <Navbar/>
                 <Routes>
                     <Route path='/' element={<Home/>}/>
                     <Route path='/results' element={<Results/>}/>
