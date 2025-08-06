@@ -25,21 +25,30 @@ function Results() {
       {/* Mentor Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
         {filteredMentors.map((mentor, index) => (
-          <div key={index} className="bg-gray-100 rounded-xl p-4 text-black shadow-lg">
-            <div className="flex flex-col items-center">
-              <img
-                src={`https://i.pravatar.cc/150?img=${index + 10}`} // dummy images
-                alt="mentor"
-                className="rounded-full w-20 h-20 object-cover mb-2"
-              />
-              <p className="text-sm text-gray-600">{mentor.followers || "Xk"} Followers</p>
-              <h3 className="text-lg font-semibold">{mentor.name}</h3>
-              <p className="text-sm">{mentor.expertise}</p>
-              <p className="text-yellow-500">Ratings: ⭐ 4.5 (12 Reviews)</p>
-              <p className="text-sm">${mentor.price} / 30 mins</p>
-              <button className="mt-2 px-4 py-1 rounded bg-indigo-500 text-white">Call</button>
-            </div>
-          </div>
+          <div className="bg-gray-100 rounded-xl p-4 text-black shadow-lg flex flex-col items-center relative">
+        {/* Profile Image + Status Dot */}
+        <div className="relative">
+            <img
+            src={`https://i.pravatar.cc/150?img=${index + 10}`}
+            alt="mentor"
+            className="rounded-full w-20 h-20 object-cover"
+            />
+            <span
+            className={`absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-white ${
+                mentor.online ? "bg-green-500" : "bg-gray-400"
+            }`}
+            ></span>
+        </div>
+
+        {/* Mentor Details */}
+        <p className="text-sm text-gray-600 mt-1">{mentor.followers || "Xk"} Followers</p>
+        <h3 className="text-lg font-semibold">{mentor.name}</h3>
+        <p className="text-sm">{mentor.expertise}</p>
+        <p className="text-yellow-500">Ratings: ⭐ 4.5 (12 Reviews)</p>
+        <p className="text-sm">${mentor.price} / 30 mins</p>
+        <button className="mt-2 px-4 py-1 rounded bg-indigo-500 text-white cursor-pointer hover:bg-indigo-800">Call</button>
+        </div>
+
         ))}
       </div>
 
