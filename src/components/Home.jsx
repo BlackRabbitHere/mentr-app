@@ -1,27 +1,37 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import TrendingMentors from "./TrendingMentors";
+import TrendingMentors from "./home/TrendingMentors";
 import mentorData from "../data/mentorData";
+import GlitchText from "./home/GlitchText";
+
+
 
 function Home() {
    const [searchTerm, setSearchTerm] = useState("");
-    const inputRef = useRef();
     const navigate = useNavigate();
-  
-
    const handleKeyPress = (e) => {
         if (e.key === "Enter" && searchTerm.trim() !== "") {
         navigate(`/results?query=${encodeURIComponent(searchTerm.trim())}`);
         }
     }
+
+
   return (
     <div className="min-h-screen bg-[#2e3440] text-white flex flex-col justify-center items-center px-4">
       
       {/* Headings */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-2">
-        Talk with Experts in Seconds.
-      </h1>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-2 h-20">
+        <GlitchText phrases={[
+            "Talk with Experts",
+            "Learn from Leaders",
+            "Get Real Help",
+            "Master New Skills",
+            "Accelerate Growth"
+        ]} />{" "}
+        <span className="text-white">in Seconds.</span>
+        </h1>
+
       <p className="text-lg text-gray-300 text-center mb-6">
         Real Experienced People, Real Guidance, Real Results
       </p>

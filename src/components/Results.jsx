@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import mentorData from "../data/mentorData";
-import MentorBookingModal from "../components/MentorBookingModal";
-import TrendingSearches from "./TrendingSearches";
+import MentorBookingModal from "./mentor/MentorBookingModal";
+import TrendingSearches from "./mentor/TrendingSearches";
 
 function Results() {
   const [searchParams] = useSearchParams();

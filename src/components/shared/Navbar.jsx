@@ -27,7 +27,8 @@ const Navbar=()=>{
                     }}
                 >
 
-                    {/* Login Button */}
+
+                    {/* Signup Button */}
                     
                     <li className="font-[500] transition-all duration-150">
                         <Link className="flex bg-blue-800 items-center space-x-2 px-4 py-[6px]   
@@ -35,6 +36,18 @@ const Navbar=()=>{
                     to="/">
                             <FaUserPlus/>
                             <span>Signup</span>
+                        </Link>
+                    </li>
+
+
+                    {/* Signup Button */}
+                    
+                    <li className="font-[500] transition-all duration-150">
+                        <Link className="flex bg-blue-800 items-center space-x-2 px-4 py-[6px]   
+                            text-white font-semibold rounded-md shadow-lg "
+                    to="/">
+                            <FaUserPlus/>
+                            <span>Become a Mentor</span>
                         </Link>
                     </li>
                     
