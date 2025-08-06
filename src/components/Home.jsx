@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 function Home() {
-  const [searchParams] = useSearchParams();
-  const params = new URLSearchParams(searchParams);
-  const pathName = useLocation().pathname;
-  const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState("");
+   const [searchTerm, setSearchTerm] = useState("");
+    const inputRef = useRef();
+    const navigate = useNavigate();
+  
 
+   const handleKeyPress = (e) => {
+        if (e.key === "Enter" && searchTerm.trim() !== "") {
+        navigate(`/results?query=${encodeURIComponent(searchTerm.trim())}`);
+        }
+    }
   return (
     <div className="min-h-screen bg-[#2e3440] text-white flex flex-col justify-center items-center px-4">
       
@@ -37,6 +41,7 @@ function Home() {
           className="w-full pl-10 pr-4 py-3 rounded-md text-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyPress}
         />
         <FiSearch className="absolute left-3 top-3.5 text-gray-400" size={24} />
       </div>
