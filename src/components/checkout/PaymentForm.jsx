@@ -1,9 +1,13 @@
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import { useState } from "react";
+
 
 function PaymentPage() {
   const location = useLocation();
   const { mentor, date, time } = location.state || {};
+  
+  const navigate = useNavigate();
+
 
   const [cardNumber, setCardNumber] = useState("");
   const [cardHolder, setCardHolder] = useState("");
@@ -37,7 +41,18 @@ function PaymentPage() {
 
   const handleConfirmPay = () => {
     if (validateCard()) {
-      alert("Payment Confirmed ✅ (Simulation)");
+      navigate("/payment-success", {
+        state: {
+            mentor,
+            cardLast4: cardNumber.slice(-4),
+            total: parseFloat(mentor.price) + 2,
+            subtotal: parseFloat(mentor.price),
+            tax: 2,
+            date,
+            time,
+        },
+        });
+
     }
   };
 
